@@ -11,6 +11,8 @@ struct Deque {
 	node *head, *tail;
 	Deque() : head(NULL), tail(NULL) {}
 	~Deque() {
+		while (tail != NULL)
+			this->pop_back();
 	}
 	int back() {
 		if (tail == NULL) {
