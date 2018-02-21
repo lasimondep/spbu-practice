@@ -1,7 +1,9 @@
-all: main.o pw.o prime.o leg_symb.o 
-	g++ -std=gnu++11 -O0 -Wall -Wextra -DCEMA main.o pw.o prime.o leg_symb.o -o main.exe
+all: main.o func.dll
+	g++ -L./ -l func -std=gnu++11 -O0 -Wall -Wextra -DCEMA main.o -o main.exe
 main.o: main.cpp func.h win64decimal.h
 	g++ -c -std=gnu++11 -O0 -Wall -Wextra -DCEMA main.cpp -o main.o
+func.dll: pw.o prime.o leg_symb.o
+	g++ -shared -std=gnu++11 -O0 -Wall -Wextra -DCEMA pw.o prime.o leg_symb.o -o func.dll
 pw.o: pw.cpp
 	g++ -c -std=gnu++11 -O0 -Wall -Wextra -DCEMA pw.cpp -o pw.o
 prime.o: prime.cpp
