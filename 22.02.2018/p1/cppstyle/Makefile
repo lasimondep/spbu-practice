@@ -1,4 +1,4 @@
-OTP=-std=gnu++11 -O0 -Wall -Wextra -DCEMA
+OPT=-std=gnu++11 -O0 -Wall -Wextra -DCEMA
 
 all: main.o parse_opt.o read.o write_ans.o
 	g++ $(OPT) main.o parse_opt.o read.o write_ans.o calc.o -o main.exe
